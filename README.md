@@ -12,7 +12,7 @@ This is my personal project, building a mini coding assistant.
 
 ### Phases
 
-Phase 1: Read + Q&A Agent (clone repo, read files, answer questions)
-Phase 2: Code Editor Agent (modify and write code)
-Phase 3: Execution Agent (run commands, detect errors, retry fixes)
-Phase 4: Full Dev Agent (git push/commit, etc)
+**Phase 1:** Read + Q&A Agent (clone repo, read files, answer questions)
+**Phase 2:** Code Editor Agent (modify and write code)
+**Phase 3:** Execution Agent (run commands, detect errors, retry fixes)
+**Phase 4:** Full Dev Agent (git push/commit, etc)

@@ -11,6 +11,4 @@ load_dotenv(PROJECT_ROOT / ".env", override=True)
 
 GITHUB_PAT = os.getenv("GITHUB_PAT")
 
-MCP_MEMORY_FILE_PATH = BASE_DIR / "Memory" / "mcp_memory.jsonl"
-
 CHAT_MEMORY_PATH = BASE_DIR / "Memory" / "chat_memory.json"
