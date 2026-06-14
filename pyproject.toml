@@ -8,6 +8,7 @@ dependencies = [
     "mcp>=1.27.2",
     "openai>=2.41.0",
     "openai-agents>=0.17.4",
+    "rich>=15.0.0",
 ]
 
 [dependency-groups]
