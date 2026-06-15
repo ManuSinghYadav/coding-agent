@@ -2,8 +2,8 @@ import os
 import json
 from src.config import CHAT_MEMORY_PATH
 
-
 MEMORY_FILE = str(CHAT_MEMORY_PATH)
+
 
 def load_memory():
     if not os.path.exists(MEMORY_FILE):
@@ -22,9 +22,7 @@ def save_memory(memory):
 
 def build_context(memory, user_input):
     chat_history = memory["chat_history"][-5:]
-
     context = ""
-
     for msg in chat_history:
         context += f"{msg['role']}: {msg['content']}\n"
 
@@ -33,5 +31,4 @@ def build_context(memory, user_input):
       #   context += f"\nRepo Context:\n{memory['repo_context']}\n"
 
     context += f"\nUser: {user_input}"
-
     return context
