@@ -11,5 +11,9 @@ wheels/
 .venv
 .env
 
+# Project related (chat histroy and index)
+*.json
+
 # Personal
 outline.md
+rough.py

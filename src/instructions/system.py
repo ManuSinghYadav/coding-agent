@@ -1,4 +1,4 @@
-github_instructions = "You are smart coding agent which helps users to work on code." 
+github_instructions = "You are smart coding agent which helps users to work on code."
 
 cloning_instructions = """If user wants to do some analysis or Q&A and wants you to work on the code, bugs or some feature request. 
 Then you should first always run the tool 'check_if_already_cloned' to check if repo is there or not. If it not there, then you should always tell user that 

@@ -19,45 +19,47 @@ def spinner(stop_event):
 
 
 async def main_agent_loop():
-	memory = load_memory()
-	c = 0
+    memory = load_memory()
+    c = 0
 
-	while c < 20:
-		user_input = input("User: ")
+    while c < 20:
+        user_input = input("User: ")
 
-		context = build_context(memory, user_input)
+        context = build_context(memory, user_input)
 
-		result = None
-		stop_loading = None
-		thread = None
+        result = None
+        stop_loading = None
+        thread = None
 
-		try:
-			stop_loading = threading.Event()
+        try:
+            stop_loading = threading.Event()
 
-			thread = threading.Thread(target=spinner, args=(stop_loading,))
-			thread.start()
+            thread = threading.Thread(target=spinner, args=(stop_loading,))
+            thread.start()
 
-			async with github_mcp_server:
-				with trace("Coding-agent"):
-					result = await Runner.run(github_agent, context)
+            async with github_mcp_server:
+                with trace("Coding-agent"):
+                    result = await Runner.run(github_agent, context)
 
-		except Exception:
-			traceback.print_exc()
+        except Exception:
+            traceback.print_exc()
 
-		finally:
-			if stop_loading:
-				stop_loading.set()
-			if thread:
-				thread.join()
+        finally:
+            if stop_loading:
+                stop_loading.set()
+            if thread:
+                thread.join()
 
-		if result is not None:
-			print(f"\rAgent: {result.final_output}")
-			memory["chat_history"].append({"role": "user", "content": user_input})
-			memory["chat_history"].append({"role": "assistant", "content": result.final_output})
-		else:
-			print("Agent: Error occurred")
+        if result is not None:
+            print(f"\rAgent: {result.final_output}")
+            memory["chat_history"].append({"role": "user", "content": user_input})
+            memory["chat_history"].append(
+                {"role": "assistant", "content": result.final_output}
+            )
+        else:
+            print("Agent: Error occurred")
 
-		memory["chat_history"] = memory["chat_history"][-10:]
-		save_memory(memory)
+        memory["chat_history"] = memory["chat_history"][-10:]
+        save_memory(memory)
 
-		c += 1
+        c += 1

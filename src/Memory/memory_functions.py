@@ -27,8 +27,8 @@ def build_context(memory, user_input):
         context += f"{msg['role']}: {msg['content']}\n"
 
     # Add repo ONLY when needed
-   #  if intent in ["repo_query", "repo_task"]:
-      #   context += f"\nRepo Context:\n{memory['repo_context']}\n"
+    #  if intent in ["repo_query", "repo_task"]:
+    #   context += f"\nRepo Context:\n{memory['repo_context']}\n"
 
     context += f"\nUser: {user_input}"
     return context
