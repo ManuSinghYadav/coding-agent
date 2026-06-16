@@ -47,7 +47,7 @@ def summary_builder(index_path: str) -> str:
 
 
 @function_tool
-def index_builder(repo_name: str) -> str:
+def index_builder(repo_name: str) -> dict[str, str] | str:
     """Builds index of repositroy in JSON format, which cointains
             - file_name
             - file_path
@@ -87,7 +87,7 @@ def index_builder(repo_name: str) -> str:
             print("Index built")
 
             summary_status = summary_builder(
-                Path.cwd() / "coding_agent" / f"index_of_{repo_name}.json"
+                str(Path.cwd() / "coding_agent" / f"index_of_{repo_name}.json")
             )
 
             return {"index_status": "success", "summary_status": summary_status}

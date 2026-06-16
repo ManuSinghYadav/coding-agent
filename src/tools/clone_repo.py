@@ -5,7 +5,7 @@ from agents import function_tool
 
 
 @function_tool
-def clone_repo(repo_url: str, branch: str = None):
+def clone_repo(repo_url: str, branch: str | None = None):
     """
     Clone a GitHub repository locally.
 

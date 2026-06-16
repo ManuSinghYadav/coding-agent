@@ -18,7 +18,7 @@ class ReleventFiles(BaseModel):
 
 
 @function_tool
-def file_filter(query: str, repo_name: str) -> str:
+def file_filter(query: str, repo_name: str) -> ReleventFiles | str | None:
     """Used for retrieving the relevent file names with reason.
     Args:
         query: query of user
